@@ -60,7 +60,10 @@ class TestView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        return Response({"message": "You are logged in"})
+        return Response({
+            "message": "You are logged in",
+            "username": request.user.username,
+        })
 
 
 class UserListView(APIView):
